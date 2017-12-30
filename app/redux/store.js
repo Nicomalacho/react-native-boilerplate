@@ -1,15 +1,15 @@
-import {createStore, compose, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 // import someReduxMiddleware from 'some-redux-middleware';
 // import someOtherReduxMiddleware from 'some-other-redux-middleware';
-import { composeWithDevTools } from 'remote-redux-devtools';
+import {composeWithDevTools} from 'remote-redux-devtools';
 import rootReducer from './reducers/root.reducer';
 
 const enhancerList = [];
 const devToolsExtension = window && window.__REDUX_DEVTOOLS_EXTENSION__;
 
 if (typeof devToolsExtension === 'function') {
-    enhancerList.push(devToolsExtension());
+  enhancerList.push(devToolsExtension());
 }
 
 const composedEnhancer = composeWithDevTools(applyMiddleware(thunk), ...enhancerList);
@@ -17,5 +17,5 @@ const composedEnhancer = composeWithDevTools(applyMiddleware(thunk), ...enhancer
 const initStore = () => createStore(rootReducer, {}, composedEnhancer);
 
 module.exports = {
-    initStore
+  initStore
 };

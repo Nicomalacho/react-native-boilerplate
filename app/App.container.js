@@ -5,27 +5,27 @@ import Proptypes from 'prop-types';
 import {addNavigationHelpers} from 'react-navigation';
 
 class App extends Component {
-    render () {
-        const {dispatch, nav, userPreferences} = this.props;
-        return (
-            <Router screenProps={userPreferences} navigation={addNavigationHelpers({dispatch, state: nav})}/>
-        );
-    }
+  render () {
+    const {dispatch, nav, userPreferences} = this.props;
+    return (
+      <Router screenProps={userPreferences} navigation={addNavigationHelpers({dispatch, state: nav})}/>
+    );
+  }
 }
 
 App.propTypes = {
-    dispatch: Proptypes.func,
-    nav: Proptypes.object,
-    userPreferences: Proptypes.object
+  dispatch: Proptypes.func,
+  nav: Proptypes.object,
+  userPreferences: Proptypes.object
 };
 
 const mapStateToProps = ({nav, userPreferences}) => ({
-    nav,
-    userPreferences
+  nav,
+  userPreferences
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    dispatch
+  dispatch
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

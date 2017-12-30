@@ -11,10 +11,10 @@ const nav = (state, action) => (
 );
 
 export default combineReducers({
-    test,
-    content,
-    login,
-    nav,
-    notes,
-    userPreferences,
+  test,
+  content,
+  login,
+  nav,
+  notes,
+  userPreferences,
 });

@@ -13,55 +13,56 @@ import icoMoonConfig from '../../assets/selection.json';
 const Icon = createIconSetFromIcoMoon(icoMoonConfig);
 
 class Home extends Component {
-    addNote = () => {
-        const {saveNote, title, text} = this.props;
-        if (title && text) {
-            saveNote({title, text});
-        }
-    };
-    render () {
-        const {setTitle, title, text, setText, notes, currentLanguage, toggleLanguage} = this.props;
-        return (
-            <View style={styles.container}>
-                <Text style={styles.changeLanguageText}>{translate('HOME_noteTitle')}</Text>
-                <Touchable style={styles.changeLanguage} onPress={toggleLanguage}>
-                    <Text style={styles.changeLanguageText}>{currentLanguage}</Text>
-                </Touchable>
-                <TextInput style={styles.titleTextInput}
-                           onChangeText={setTitle} value={title} />
-                <Text style={styles.textAreaTitle}>{translate('HOME_pleaseTypeYourNote')}  <Icon name='notepad' size={15}/></Text>
-                <TextInput style={styles.textArea} multiline = {true}
-                           onChangeText={setText} value={text}/>
-                <KeyboardAvoidingView style={styles.bottomBar}>
-                    <View style={styles.bottomBarWrapper}>
-                        <Text style={styles.saveBtn} onPress={this.addNote}>{translate('HOME_save')}</Text>
-                        <Text style={styles.characterCount}>{text.length} {translate('HOME_characters')}</Text>
-                    </View>
-                </KeyboardAvoidingView>
-                <Notes data={notes} />
-                <Touchable style={styles.aboutUsWrapper} onPress={this.props.onDeletePress}>
-                    <Text style={styles.aboutUs}>Logout</Text>
-                </Touchable>
-            </View>
-        );
+  addNote = () => {
+    const {saveNote, title, text} = this.props;
+    if (title && text) {
+      saveNote({title, text});
     }
+  };
+  render () {
+    const {setTitle, title, text, setText, notes, currentLanguage, toggleLanguage} = this.props;
+    return (
+      <View style={styles.container}>
+        <Text style={styles.changeLanguageText}>{translate('HOME_noteTitle')}</Text>
+        <Touchable style={styles.changeLanguage} onPress={toggleLanguage}>
+          <Text style={styles.changeLanguageText}>{currentLanguage}</Text>
+        </Touchable>
+        <TextInput style={styles.titleTextInput}
+                           onChangeText={setTitle} value={title} />
+        <Text style={styles.textAreaTitle}>{translate('HOME_pleaseTypeYourNote')}  <Icon name='notepad' size={15}/></Text>
+        <TextInput style={styles.textArea} multiline = {true}
+                           onChangeText={setText} value={text}/>
+        <KeyboardAvoidingView style={styles.bottomBar}>
+          <View style={styles.bottomBarWrapper}>
+            <Text style={styles.saveBtn} onPress={this.addNote}>{translate('HOME_save')}</Text>
+            <Text style={styles.characterCount}>{text.length} {translate('HOME_characters')}</Text>
+          </View>
+        </KeyboardAvoidingView>
+        <Notes data={notes} />
+        <Touchable style={styles.aboutUsWrapper} onPress={this.props.onDeletePress}>
+          <Text style={styles.aboutUs}>Logout</Text>
+        </Touchable>
+      </View>
+    );
+  }
 }
 
 Home.defaultProps = {
-    onAboutPress: noop,
-    onDeletePress: noop
+  onAboutPress: noop,
+  onDeletePress: noop
 };
 
 Home.propTypes = {
-    setTitle: PropTypes.func,
-    onAboutPress: PropTypes.func,
-    setText: PropTypes.func,
-    toggleLanguage: PropTypes.func,
-    title: PropTypes.string,
-    saveNote: PropTypes.func,
-    notes: PropTypes.array,
-    currentLanguage: PropTypes.string,
-    text: PropTypes.string
+  setTitle: PropTypes.func,
+  onAboutPress: PropTypes.func,
+  setText: PropTypes.func,
+  toggleLanguage: PropTypes.func,
+  onDeletePress: PropTypes.func,
+  title: PropTypes.string,
+  saveNote: PropTypes.func,
+  notes: PropTypes.array,
+  currentLanguage: PropTypes.string,
+  text: PropTypes.string
 };
 
 export default Home;
