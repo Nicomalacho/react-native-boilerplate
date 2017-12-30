@@ -1,4 +1,4 @@
-package com.notetaker;
+package com.react-native-boilerplate;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "NoteTaker";
+        return "react-native-boilerplate";
     }
 }
