@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {View, Text} from 'react-native'
+import {View, Text, ActivityIndicator} from 'react-native'
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {NavigationActions} from 'react-navigation';
@@ -10,8 +10,8 @@ class LoadingPage extends Component {
     }
     render() {
         return (
-            <View>
-                <Text>Example component!!</Text>
+            <View style={{flex: 1,flexDirection: 'column',justifyContent: 'center'}}>
+                <ActivityIndicator size="large"/>
             </View>
         )
     }
